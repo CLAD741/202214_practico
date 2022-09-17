@@ -4,9 +4,25 @@ import { AppService } from './app.service';
 import { SocioModule } from './socio/socio.module';
 import { ClubModule } from './club/club.module';
 import { ClubSocioModule } from './club-socio/club-socio.module';
+import { SocioEntity } from './socio/socio.entity';
+import { ClubEntity } from './club/club.entity';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [SocioModule, ClubModule, ClubSocioModule],
+  imports: [SocioModule, ClubModule, ClubSocioModule,
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'postgres',
+      database: 'clubs',
+      entities: [SocioEntity, ClubEntity],
+      dropSchema: true,
+      synchronize: true,
+      keepConnectionAlive: true
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
