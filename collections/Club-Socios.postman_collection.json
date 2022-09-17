@@ -1,0 +1,646 @@
+{
+	"info": {
+		"_postman_id": "32327051-5a09-4668-b3ae-f36cfd3b317b",
+		"name": "Club-Socios",
+		"description": "Buy or rent spacecrafts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23014993"
+	},
+	"item": [
+		{
+			"name": "Agregar un socio a un club.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{club-id}}/socios/{{socio-id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{club-id}}",
+						"socios",
+						"{{socio-id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar un socio a un club.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/clubs/{{club-id}}/socios/{{socio-id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"clubs",
+								"{{club-id}}",
+								"socios",
+								"{{socio-id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"2d8375f8-af64-4d0e-9fe4-a893030bea52\",\n    \"nombre\": \"club 5\",\n    \"fechaFundacion\": \"2021-12-17T04:14:36.000Z\",\n    \"imagenUrl\": \"http://dummyimage.com/148x100.png/5fa2dd/ffffff\",\n    \"descripcion\": \"Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam,\",\n    \"socios\": [\n        {\n            \"id\": \"057be663-87d1-459c-9c17-63020c469c4c\",\n            \"usuario\": \"echown1\",\n            \"correo\": \"mroughey1@angelfire.com\",\n            \"fechaNacimiento\": \"2022-04-22T02:53:13.000Z\",\n            \"clubs\": []\n        }\n    ]\n}"
+				},
+				{
+					"name": "Agregar un socio a un club. socio inexistente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/clubs/{{club-id}}/socios/{{socio-id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"clubs",
+								"{{club-id}}",
+								"socios",
+								"{{socio-id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El socio con el id dado no fue encontrado\"\n}"
+				},
+				{
+					"name": "Agregar un socio a un club inexistente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/clubs/{{club-id}}/socios/{{socio-id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"clubs",
+								"{{club-id}}",
+								"socios",
+								"{{socio-id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El club con el id dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener socio de un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{club-id}}/socios/{{socio-id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{club-id}}",
+						"socios",
+						"{{socio-id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener socio de un club",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/clubs/{{club-id}}/socios/{{socio-id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"clubs",
+								"{{club-id}}",
+								"socios",
+								"{{socio-id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"057be663-87d1-459c-9c17-63020c469c4c\",\n    \"usuario\": \"echown1\",\n    \"correo\": \"mroughey1@angelfire.com\",\n    \"fechaNacimiento\": \"2022-04-22T02:53:13.000Z\"\n}"
+				},
+				{
+					"name": "Obtener socio de un club inexistente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club-id}}/socios/{{socio-id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club-id}}",
+								"socios",
+								"{{socio-id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El club con el id dado no fue encontrado\"\n}"
+				},
+				{
+					"name": "Obtener socio de un club, socio inexistente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club-id}}/socios/{{socio-id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club-id}}",
+								"socios",
+								"{{socio-id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El socio con el id dado no fue encontrado\"\n}"
+				},
+				{
+					"name": "Obtener socio de un club, sin asociación",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club-id}}/socios/{{socio-id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club-id}}",
+								"socios",
+								"{{socio-id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El socio no pertenece al club dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener socios de un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{club-id}}/socios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{club-id}}",
+						"socios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener socios de un club",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club-id}}/socios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club-id}}",
+								"socios"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"057be663-87d1-459c-9c17-63020c469c4c\",\n        \"usuario\": \"echown1\",\n        \"correo\": \"mroughey1@angelfire.com\",\n        \"fechaNacimiento\": \"2022-04-22T02:53:13.000Z\"\n    }\n]"
+				},
+				{
+					"name": "Obtener socios de un club inexistente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club-id}}/socios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club-id}}",
+								"socios"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El club con el id dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar socios de un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\r\n        \"usuario\": \"gmadle3\",\r\n        \"correo\": \"wwarder3@independent.co.uk\",\r\n        \"fechaNacimiento\": \"2021-10-04T22:34:41.000Z\",\r\n        \"clubs\": []\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/club/{{club-id}}/socios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"club",
+						"{{club-id}}",
+						"socios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar socios de un club",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"2ba65b29-64c7-4fe6-9ade-81243b3fe816\",\r\n        \"usuario\": \"gmadle3\",\r\n        \"correo\": \"wwarder3@independent.co.uk\",\r\n        \"fechaNacimiento\": \"2021-10-04T22:34:41.000Z\",\r\n        \"clubs\": []\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clubs/2d8375f8-af64-4d0e-9fe4-a893030bea52",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"2d8375f8-af64-4d0e-9fe4-a893030bea52"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"2d8375f8-af64-4d0e-9fe4-a893030bea52\",\r\n    \"nombre\": \"club 5\",\r\n    \"fechaFundacion\": \"2021-12-17T04:14:36.000Z\",\r\n    \"imagenUrl\": \"http://dummyimage.com/148x100.png/5fa2dd/ffffff\",\r\n    \"descripcion\": \"Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam,\",\r\n    \"socios\": [\r\n        {\r\n            \"id\": \"2ba65b29-64c7-4fe6-9ade-81243b3fe816\",\r\n            \"usuario\": \"gmadle3\",\r\n            \"correo\": \"wwarder3@independent.co.uk\",\r\n            \"fechaNacimiento\": \"2021-10-04T22:34:41.000Z\",\r\n            \"clubs\": []\r\n        }\r\n    ]\r\n}"
+				},
+				{
+					"name": "Actualizar socios de un club Copy",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"2ba65b29-64c7-4fe6-9ade-81243b3fe816\",\r\n        \"usuario\": \"gmadle3\",\r\n        \"correo\": \"wwarder3@independent.co.uk\",\r\n        \"fechaNacimiento\": \"2021-10-04T22:34:41.000Z\",\r\n        \"clubs\": []\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clubs/2d8375f8-af64-4d0e-9fe4-a893030bea52",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"2d8375f8-af64-4d0e-9fe4-a893030bea52"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"El club con el id dado no fue encontrado\"\r\n}"
+				},
+				{
+					"name": "Actualizar socios de un club Copy 2",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"2ba65b29-64c7-4fe6-9ade-81243b3fe816\",\r\n        \"usuario\": \"gmadle3\",\r\n        \"correo\": \"wwarder3@independent.co.uk\",\r\n        \"fechaNacimiento\": \"2021-10-04T22:34:41.000Z\",\r\n        \"clubs\": []\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clubs/2d8375f8-af64-4d0e-9fe4-a893030bea52",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"2d8375f8-af64-4d0e-9fe4-a893030bea52"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"El socio con el id dado no fue encontrado\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar socio de un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{club-id}}/socios/{{socio-id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{club-id}}",
+						"socios",
+						"{{socio-id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar socio de un club",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club-id}}/socios/{{socio-id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club-id}}",
+								"socios",
+								"{{socio-id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Borrar socio de un club Copy",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club-id}}/socios/{{socio-id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club-id}}",
+								"socios",
+								"{{socio-id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El socio con el id dado no fue encontrado\"\n}"
+				},
+				{
+					"name": "Borrar socio de un club inexistente",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club-id}}/socios/{{socio-id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club-id}}",
+								"socios",
+								"{{socio-id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El club con el id dado no fue encontrado\"\n}"
+				},
+				{
+					"name": "Borrar socio de un club relación inexistente",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club-id}}/socios/{{socio-id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club-id}}",
+								"socios",
+								"{{socio-id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El socio no pertenece al club dado\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}
